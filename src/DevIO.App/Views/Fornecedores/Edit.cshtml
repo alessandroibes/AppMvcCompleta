@@ -10,7 +10,7 @@
 
 <form asp-action="Edit">
 
-    <vc:summary></vc:summary>
+    <vc:Summary></vc:Summary>
 
     <input type="hidden" asp-for="Id" />
 
@@ -57,7 +57,6 @@
 
 <hr />
 <h4>Produtos</h4>
-
 <div>
     <partial name="../Produtos/_ListaProdutos" model="@Model.Produtos" />
 </div>
@@ -75,7 +74,7 @@
 
     <script>
         $(document).ready(function () {
-            AjaxModal();
+            SetModal();
         });
     </script>
 }

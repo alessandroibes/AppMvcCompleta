@@ -7,7 +7,7 @@ namespace DevIO.App.Configurations
     {
         public static IServiceCollection AddMvcConfiguration(this IServiceCollection services)
         {
-            services.AddMvc(o =>
+            services.AddControllersWithViews(o =>
             {
                 o.ModelBindingMessageProvider.SetAttemptedValueIsInvalidAccessor((x, y) => "O valor preenchido é inválido para este campo.");
                 o.ModelBindingMessageProvider.SetMissingBindRequiredValueAccessor(x => "Este campo precisa ser preenchido.");
@@ -22,7 +22,9 @@ namespace DevIO.App.Configurations
                 o.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(x => "Este campo precisa ser preenchido.");
 
                 o.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
-            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            });
+
+            services.AddRazorPages();
 
             return services;
         }
